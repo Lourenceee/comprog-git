@@ -4,6 +4,22 @@ import calendar
 import numpy
 import cv2
 
+def AniRawr():
+    ani = Tk()
+    ani.config(background = "white")
+    ani.title("ANIMATION") 
+
+    WIDTH = 500
+    HEIGHT = 500
+
+    anicav = Canvas(ani, width = WIDTH, height = HEIGHT)
+    anicav.pack()
+
+    photo_image = cv2.imread('images/maam.png')
+    my_imageg = anicav.create_image(0,0,image = photo_image, anchor = NW )
+
+    ani.mainloop()
+
 def canvass():
     canvagui = Tk()
     canvagui.config(background = "white")
@@ -26,7 +42,7 @@ def Imagehehe():
 def showCal() : 
     new_gui = Tk()     
     new_gui.config(background = "white") 
-    new_gui.title("CALENDER") 
+    new_gui.title("CUTE MAAM") 
     new_gui.geometry("550x600") 
     fetch_year = int(year_field.get()) 
     cal_content = calendar.calendar(fetch_year) 
@@ -63,9 +79,6 @@ if __name__ == "__main__" :
 
     Nani.bind('<Button-3>', papy)
 
-
-
-
     cal = Label(gui, text = "        CALENDAR", bg = "dark gray",
                             font = ("times", 28, 'bold'))    
     year = Label(gui, text = "Enter Year", bg = "light green")     
@@ -76,6 +89,9 @@ if __name__ == "__main__" :
                               bg = "Red", command = canvass)
     ShowImahe = Button(gui, text = "Show Image", fg = "Black",
                               bg = "Red", command = Imagehehe)
+    Showani = Button(gui, text = "Show Animation", fg = "Black",
+                              bg = "Red", command = AniRawr)
+
    
     Nani.grid(row = 1, column = 1)
     cal.grid(row = 1, column = 2) 
@@ -84,5 +100,6 @@ if __name__ == "__main__" :
     Show.grid(row = 5, column = 1)
     ShowCanva.grid(row = 6, column = 1)
     ShowImahe.grid(row = 7, column = 1)  
+    Showani.grid(row = 8, column = 1)
  
     gui.mainloop()
