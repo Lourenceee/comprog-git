@@ -21,6 +21,8 @@ def Imagehehe():
     cv2.imshow('image', img)
 
 
+
+
 def showCal() : 
     new_gui = Tk()     
     new_gui.config(background = "white") 
@@ -37,8 +39,34 @@ if __name__ == "__main__" :
     gui = Tk()     
     gui.config(background = "white") 
     gui.title("CALENDER") 
-    gui.geometry("250x300") 
-    cal = Label(gui, text = "CALENDAR", bg = "dark gray",
+    gui.geometry("500x500") 
+
+    Nani = Label(gui, text = "COMPROG", bg = "dark gray",
+                            font = ("times", 28, 'bold'))  
+
+    topMenu = Menu(gui)
+    gui.config(menu = topMenu)
+
+    subMenu = Menu(topMenu)
+    topMenu.add_cascade(menu = subMenu, label='Exit')
+    subMenu.add_command(label = 'command ', command = exit)
+
+    def papy(event):
+        pop.post(event.x, event.y)
+    
+    def mami():
+        img = cv2.imread('images/maam.jpg')
+        cv2.imshow('image', img)
+    
+    pop = Menu(gui, tearoff = 0)
+    pop.add_command(label = 'Hi Maam!', comman = mami)
+
+    Nani.bind('<Button-3>', papy)
+
+
+
+
+    cal = Label(gui, text = "        CALENDAR", bg = "dark gray",
                             font = ("times", 28, 'bold'))    
     year = Label(gui, text = "Enter Year", bg = "light green")     
     year_field = Entry(gui) 
@@ -48,14 +76,13 @@ if __name__ == "__main__" :
                               bg = "Red", command = canvass)
     ShowImahe = Button(gui, text = "Show Image", fg = "Black",
                               bg = "Red", command = Imagehehe)
-    Exit = Button(gui, text = "Exit", fg = "Black", bg = "Red", command = exit) 
    
-    cal.grid(row = 1, column = 1) 
-    year.grid(row = 2, column = 1) 
-    year_field.grid(row = 3, column = 1) 
-    Show.grid(row = 4, column = 1)
-    ShowCanva.grid(row = 5, column = 1)
-    ShowImahe.grid(row = 6, column = 1)
-    Exit.grid(row = 7, column = 1)      
+    Nani.grid(row = 1, column = 1)
+    cal.grid(row = 1, column = 2) 
+    year.grid(row = 3, column = 1) 
+    year_field.grid(row = 4, column = 1) 
+    Show.grid(row = 5, column = 1)
+    ShowCanva.grid(row = 6, column = 1)
+    ShowImahe.grid(row = 7, column = 1)  
  
     gui.mainloop()
