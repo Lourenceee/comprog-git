@@ -16,7 +16,7 @@ def AniRawr():
     anicav.pack()
 
     photo_image = cv2.imread('images/maam.png')
-    my_imageg = anicav.create_image(0,0,image = photo_image, anchor = NW )
+    my_image= anicav.create_image(0,0,image = photo_image, anchor = NW )
 
     ani.mainloop()
 
